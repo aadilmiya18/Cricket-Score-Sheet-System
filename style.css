@@ -160,3 +160,7 @@ body.dark-mode {
   cursor: pointer;
   padding: 5px 10px;
 }
+.nav-links a.active {
+  font-weight: bold;
+  color: #ff6347; /* You can change the color to whatever you like */
+}

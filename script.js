@@ -87,7 +87,7 @@ function addOrUpdatePlayer() {
 
 function addPlayerRow(playerData) {
   let table = document.getElementById("scoreTable");
-  let row = table.insertRow();
+  let row = table.insertRow(-1);
   row.innerHTML = `<td></td>
           <td>${playerData.batsman}</td><td>${playerData.howOut}</td><td>${playerData.bowler}</td>
           <td>${playerData.ones}</td><td>${playerData.twos}</td><td>${playerData.threes}</td>
@@ -114,7 +114,9 @@ function showBowlerModal(button) {
     let cells = editingBowlerIndex.getElementsByTagName("td");
     document.getElementById("bowlerName").value = cells[1].textContent;
     document.getElementById("overs").value = cells[2].textContent;
-    document.getElementById("runsConceded").value = cells[3].textContent;
+    document.getElementById("wicketsTaken").value = cells[3].textContent;
+    document.getElementById("runsConceded").value = cells[4].textContent;
+    
   }
 }
 
@@ -131,12 +133,12 @@ function addOrUpdateBowler() {
   let overs = document.getElementById("overs").value;
   let wicketsTaken = document.getElementById("wicketsTaken").value;
   let runsConceded = document.getElementById("runsConceded").value;
-  let economy = (runsConceded / overs).toFixed(2);
+  let economy = overs > 0 ? (runsConceded / overs).toFixed(2) : "0.00";
 
-  let table = document.getElementById("bowlerTable");
+  let table = document.getElementById("bowlerTableBody");
 
   if (!editingBowlerIndex) {
-    let row = table.insertRow();
+    let row = table.insertRow(-1);
     row.innerHTML = `<td></td>
                        <td>${bowlerName}</td>
                        <td>${overs}</td>
@@ -174,18 +176,41 @@ function updateSerialNumbers() {
 }
 
 function updateBowlerSerialNumbers() {
-  let rows = document.querySelectorAll("#bowlerTable tr");
+  let rows = document.querySelectorAll("#bowlerTableBody tr");
   rows.forEach((row, index) => {
      row.cells[0].textContent = index + 1;
   });
 }
 
 function showTable(type) {
-  if (type === "batter") {
+    if (type === "batter") {
+      document.getElementById("batterTable").style.display = "table";
+      document.getElementById("bowlerTable").style.display = "none";
+    } else if (type === "bowler") {
+      document.getElementById("batterTable").style.display = "none";
+      document.getElementById("bowlerTable").style.display = "table";
+    }
+  }
+  
+  function showBothTables() {
     document.getElementById("batterTable").style.display = "table";
-    document.getElementById("bowlerTable").style.display = "none";
-  } else {
-    document.getElementById("batterTable").style.display = "none";
     document.getElementById("bowlerTable").style.display = "table";
   }
-}
+
+  function setActiveTab(tab) {
+    // Reset all tabs to inactive
+    document.getElementById('homeLink').classList.remove('active');
+    document.getElementById('battersLink').classList.remove('active');
+    document.getElementById('bowlersLink').classList.remove('active');
+  
+    // Add 'active' class to the clicked or fetched tab
+    if (tab === 'home') {
+      document.getElementById('homeLink').classList.add('active');
+    } else if (tab === 'batters') {
+      document.getElementById('battersLink').classList.add('active');
+    } else if (tab === 'bowlers') {
+      document.getElementById('bowlersLink').classList.add('active');
+    }
+  }
+  
+  
