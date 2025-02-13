@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  color: white;
+  margin-top: 100px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  /* backdrop-filter: blur(10px); */
+}
+
+th,
+td {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background-color: rgba(0, 123, 255, 0.8);
+  color: white;
+}
+
+td {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+tr:nth-child(even) td {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background: white;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+}
+.modal-content h3 {
+  margin-top: 0;
+  text-align: center;
+}
+.modal-content label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+.modal-content input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.modal-content button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.modal-content button:first-of-type {
+  background: #28a745;
+  color: white;
+}
+.modal-content button:last-of-type {
+  background: #dc3545;
+  color: white;
+}
+
+.btn {
+  background-color: #ff9800;
+  color: white;
+  font-size: 16px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #e68900;
+  transform: scale(1.05);
+}
+
+.btn:active {
+  background-color: #c76c00;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 200px;
+  background: #4a98f7;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.nav,
+.nav .nav-links {
+  display: flex;
+  align-items: center;
+}
+.nav {
+  justify-content: space-between;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+.nav .logo {
+  font-size: 22px;
+  font-weight: 500;
+}
+.nav .nav-links {
+  column-gap: 20px;
+  list-style: none;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+.social-icons a {
+  margin: 0 10px;
+  color: white;
+}
+.toggle-btn {
+  background-color: #444;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+}
