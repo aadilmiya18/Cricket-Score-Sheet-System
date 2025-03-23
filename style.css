@@ -19,7 +19,7 @@ table {
   border-collapse: collapse;
   margin-top: 20px;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  /* border-radius: 10px; */
   overflow: hidden;
   /* backdrop-filter: blur(10px); */
 }
@@ -37,11 +37,11 @@ th {
 }
 
 td {
-  background-color: rgba(255, 255, 255, 0.1);
+  /* background-color: rgba(255, 255, 255, 0.1); */
 }
 
 tr:nth-child(even) td {
-  background-color: rgba(255, 255, 255, 0.2);
+  /* background-color: rgba(255, 255, 255, 0.2); */
 }
 
 .modal {
@@ -162,5 +162,5 @@ body.dark-mode {
 }
 .nav-links a.active {
   font-weight: bold;
-  color: #ff6347; /* You can change the color to whatever you like */
+  color: #ff6347; 
 }

@@ -198,12 +198,10 @@ function showTable(type) {
   }
 
   function setActiveTab(tab) {
-    // Reset all tabs to inactive
     document.getElementById('homeLink').classList.remove('active');
     document.getElementById('battersLink').classList.remove('active');
     document.getElementById('bowlersLink').classList.remove('active');
   
-    // Add 'active' class to the clicked or fetched tab
     if (tab === 'home') {
       document.getElementById('homeLink').classList.add('active');
     } else if (tab === 'batters') {
@@ -213,4 +211,7 @@ function showTable(type) {
     }
   }
   
+  document.addEventListener("DOMContentLoaded", function () {
+    setActiveTab('batters');
+  });
   
